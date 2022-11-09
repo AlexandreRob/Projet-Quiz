@@ -1,0 +1,31 @@
+{% extends 'dashboard/base.html' %}
+
+{%  block content %}
+
+    <h1>Liste des sessions</h1>
+
+    <p> Nombre de session créé: {{nb_session}}</p>
+
+    <ul>
+        {% for session in session_list %}
+
+        <div class="card">
+            <div class="card-header">
+                Session: {{session.codesession}}
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Thème: {{ session.Quizzes.namequizz }}</h5>
+                <p class="card-text">
+                    <ul>
+                        <strong> Service: </strong> {{ session.codeservice }} <br>
+                        <strong>Date de début: </strong>{{ session.datedebutsession }} <br>
+                        <strong>Date de fin: </strong>{{ session.datefinsession }} <br>
+                        <strong>Participants: </strong>{{ session.Employees.matriculeemployee }}
+                    </ul>
+                </p>
+          </div>
+        
+        {% endfor %}
+    </ul>
+
+{% endblock %}

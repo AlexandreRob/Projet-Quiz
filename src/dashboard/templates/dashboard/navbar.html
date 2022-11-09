@@ -1,0 +1,59 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{%  url 'home' %}">BIMVisio</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{%  url 'home' %}">Accueil</a>
+          </li>
+
+          {% if user.is_authenticated %}
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Session
+            </a>
+            
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" aria-current="page" href="{%  url 'list-sessions' %}">Liste des sessions</a></li>
+              
+              {% if user.is_superuser %}
+              <li><a class="dropdown-item" aria-current="page" href="{%  url 'add-session' %}">Créer une session</a>
+              {% endif %}
+            </ul>
+          </li>
+          {% endif %}
+
+          {% if user.is_superuser %}
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Question
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" aria-current="page" href="{%  url 'add-question' %}">Créer une question</a>
+            </ul>
+          </li>
+          {% endif %}
+
+          {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{%  url 'logout' %}">Déconnexion</a>
+          </li>
+          {% else %}
+          {% if user.is_superuser %}
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{%  url 'register_user' %}">Nouvel utilisateur</a>
+          </li>
+          {% endif %}
+
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{%  url 'login' %}">Connexion</a>
+          </li>
+          {% endif %}
+
+        </ul>
+      </div>
+    </div>
+  </nav>

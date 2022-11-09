@@ -1,0 +1,11 @@
+{% extends 'dashboard/base.html' %}
+
+{%  block content %}
+
+<h1>Liste des sessions de mon secteur</h1>
+
+{% for session in sessions %}
+    {{ session }} <br>
+{% endfor %}
+
+{% endblock %}

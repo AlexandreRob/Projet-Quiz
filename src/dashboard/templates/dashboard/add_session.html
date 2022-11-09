@@ -1,0 +1,28 @@
+{% extends 'dashboard/base.html' %}
+
+{%  block content %}
+
+{% if user.is_authenticated %}
+    
+    <h1>Ajouter une session</h1>
+    <br><br>
+        {% if submitted %}
+        Votre session a été enregistré
+
+        {% else %}
+        <form action="" method=POST>
+            {% csrf_token %}
+    
+            {{form.as_p}}
+    
+            <input type="submit" Value="Submit" class="btn btn-success">
+        </form>
+        {% endif %}
+
+{% else %}
+<h1>Oh non! Vous devez être connecté pour voir cette page</h1>
+<a href="{%  url 'login' %}">Connexion</a>
+
+{% endif %}
+
+{% endblock %}

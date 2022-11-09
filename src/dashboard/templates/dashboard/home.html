@@ -1,0 +1,27 @@
+{% extends 'dashboard/base.html' %}
+
+{%  block content %}
+
+    <h1>Bonjour {{ user }},<br>
+        bienvenue sur l'intranet de BIMVisio</h1>
+
+    {% if user.is_superuser %}
+    
+    Que voulez-vous faire ? 
+    <br><br>
+    <a class="btn btn-primary" href="{%  url 'list-sessions' %}" >Voir la liste des sessions</a>
+    <a class="btn btn-primary" href="{%  url 'add-session' %}">Créer une session</a>
+    
+    <br><br>
+    <a class="btn btn-warning disabled" role="button" aria-disabled="true">Voir la liste des quizz</a>
+    <a class="btn btn-warning disabled" role="button" aria-disabled="true">Créer un quizz</a>
+    
+    <br><br>
+    <a class="btn btn-success disabled" role="button" aria-disabled="true">Voir la liste des questions</a>
+    <a  class="btn btn-success" href="{%  url 'add-question' %}">Créer une question</a>
+    
+    {% endif %}
+
+
+{% endblock %}
+
