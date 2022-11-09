@@ -24,7 +24,7 @@ def add_session(request):
     if request.method == "POST":
         form = SessionForm(request.POST)
         if form.is_valid():
-            form.save
+            form.save()
             return HttpResponseRedirect("/add_session?submitted=True")
     else:
         form = SessionForm
@@ -39,7 +39,7 @@ def add_question(request):
     if request.method == "POST":
         form = QuestionsForm(request.POST)
         if form.is_valid():
-            form.save
+            form.save()
             return HttpResponseRedirect("/add_question?submitted=True")
     else:
         form = QuestionsForm

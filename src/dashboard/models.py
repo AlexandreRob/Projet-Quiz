@@ -256,7 +256,7 @@ class Services(models.Model):
 
 
 class Sessions(models.Model):
-    codesession = models.IntegerField(primary_key=True)
+    codesession = models.AutoField(primary_key=True)
     datedebutsession = models.DateTimeField(blank=True, null=True)
     datefinsession = models.DateTimeField(blank=True, null=True)
     codeservice = models.ForeignKey(Services, models.DO_NOTHING, db_column='codeservice')
