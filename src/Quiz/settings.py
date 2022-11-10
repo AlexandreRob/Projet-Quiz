@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'Quiz.wsgi.application'
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "DB_BIMVisio1",
+        "NAME": "DB_BIMVisio3",
         "USER" : "moni",
         "PASSWORD" : "moni"
     }
