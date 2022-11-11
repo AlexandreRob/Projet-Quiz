@@ -29,6 +29,18 @@
           {% if user.is_superuser %}
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Quizz
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" aria-current="page" href="{%  url 'add-quiz' %}">Ajouter quizz</a>
+              <li><a class="dropdown-item" aria-current="page" href="{%  url 'upload-quiz' %}">Upload quizz</a>
+            </ul>
+          </li>
+          {% endif %}
+
+          {% if user.is_superuser %}
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Question
             </a>
             <ul class="dropdown-menu">

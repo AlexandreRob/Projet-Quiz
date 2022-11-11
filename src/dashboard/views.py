@@ -47,4 +47,9 @@ def add_question(request):
             submitted = True
     return render(request, "dashboard/add_question.html",{"form" : form, "submitted" : submitted})
 
-    
+
+def add_quiz(request):
+    return render(request, "dashboard/add_quiz.html", {})
+
+def upload_quiz(request):
+    return render(request, "dashboard/upload_quiz.html", {})
