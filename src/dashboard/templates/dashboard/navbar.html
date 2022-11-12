@@ -42,17 +42,17 @@
           </li>
           {% endif %}
 
-          {% if user.is_authenticated %}
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="{%  url 'logout' %}">Déconnexion</a>
-          </li>
-          {% else %}
           {% if user.is_superuser %}
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="{%  url 'register_user' %}">Nouvel utilisateur</a>
           </li>
           {% endif %}
 
+          {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{%  url 'logout' %}">Déconnexion</a>
+          </li>
+          {% else %}
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="{%  url 'login' %}">Connexion</a>
           </li>
