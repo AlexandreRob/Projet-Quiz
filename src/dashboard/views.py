@@ -53,3 +53,6 @@ def add_quiz(request):
 
 def upload_quiz(request):
     return render(request, "dashboard/upload_quiz.html", {})
+
+def quizz(request):
+    return render(request, "dashboard/quizz.html", {})
