@@ -1,0 +1,16 @@
+{% extends 'dashboard/base.html' %}
+
+{%  block content %}
+
+{% if user.is_authenticated %}
+
+    <h1>Ajouter des quizz</h1>
+    
+
+{% else %}
+<h1>Oh non! Vous devez être connecté pour voir cette page</h1>
+<a href="{%  url 'login' %}">Connexion</a>
+
+{% endif %}
+
+{% endblock %}

@@ -54,3 +54,12 @@ def all_questions(request):
          "question_list": question_list,
        })
     
+
+def add_quiz(request):
+    return render(request, "dashboard/add_quiz.html", {})
+
+def upload_quiz(request):
+    return render(request, "dashboard/upload_quiz.html", {})
+
+def quizz(request):
+    return render(request, "dashboard/quizz.html", {})
