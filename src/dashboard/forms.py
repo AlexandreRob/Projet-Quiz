@@ -11,8 +11,8 @@ class SessionForm(ModelForm):
             "intituleSession" : "",
             "datedebutsession" : "YYYY-MM-DD HH:MM:SS",
             "datefinsession" : "",
-            "idService" : "",
-            "idEmploye" : "",
+            "idService" : "Entrer le service",
+            "idEmploye" : "Entrer l'employée",
         }
         widgets = {
             "intituleSession" : forms.TextInput(attrs={"class":"form-control", 'placeholder' : "Entrer l'intitulé de la session"}),
