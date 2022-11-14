@@ -2,14 +2,6 @@ from django.shortcuts import render, HttpResponseRedirect
 from .models import *
 from .forms import QuestionsForm, SessionForm
 
-# Create your views here.
-
-# Start test xml
-
-
-# End test XML
-
-
 def home(request):
     return render(request, "dashboard/home.html", {})
 

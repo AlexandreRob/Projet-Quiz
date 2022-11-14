@@ -7,8 +7,6 @@
 # Feel free to rename the models, but don't rename db_table values or field names.
 from django.db import models
 
-from django.db import models
-
 class Service(models.Model):
     codeService = models.CharField(max_length=5, blank=False, null=False, unique=True)
     intitule = models.CharField(max_length=50, blank=False, null=False)
