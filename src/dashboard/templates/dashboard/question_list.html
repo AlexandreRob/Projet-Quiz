@@ -1,0 +1,31 @@
+{% extends 'dashboard/base.html' %}
+
+{%  block content %}
+
+    <h1>Liste des questions</h1>
+
+    <p> Nombre de question créé: {{nb_question}}</p>
+
+    <ul>
+        {% for session in session_list %}
+
+        <div class="card">
+            <div class="card-header">
+                question: {{question.id}}
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Thème: {{ question.Question.titre }}</h5>
+                <p class="card-text">
+                    <ul>
+                        <strong> Question: </strong> {{ question.intitule }} <br>
+                        <!-- <strong>Date de début: </strong>{{ session.datedebutsession }} <br>
+                        <strong>Date de fin: </strong>{{ session.datefinsession }} <br>
+                        <strong>Participants: </strong>{{ session.Employees.matriculeemployee }} -->
+                    </ul>
+                </p>
+          </div>
+        
+        {% endfor %}
+    </ul>
+
+{% endblock %}
