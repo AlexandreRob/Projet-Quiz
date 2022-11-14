@@ -1,6 +1,6 @@
 from django.shortcuts import render, HttpResponseRedirect
 from .models import Sessions, Quizzes, Questions, Services
-from .forms import QuestionsForm, SessionForm
+from .forms import QuestionsForm, SessionForm, UploadFileForm
 
 # Create your views here.
 def home(request):
@@ -56,3 +56,18 @@ def upload_quiz(request):
 
 def quizz(request):
     return render(request, "dashboard/quizz.html", {})
+
+def handle_uploaded_file(f):
+    with open('some/file/name.txt', 'wb+') as destination:
+        for chunk in f.chunks():
+            destination.write(chunk)
+
+def upload_file(request):
+    if request.method == 'POST':
+        form = UploadFileForm(request.POST, request.FILES)
+        if form.is_valid():
+            handle_uploaded_file(request.FILES['file'])
+            return HttpResponseRedirect('/success/url/')
+    else:
+        form = UploadFileForm()
+    return render(request, 'upload.html', {'form': form})

@@ -40,3 +40,7 @@ class QuestionsForm(ModelForm):
             # "questioncountdown" : forms.TextInput(attrs={"class":"form-control", 'placeholder' : "Entrer un décompte de temps"}),
             "answeriscorrect" : forms.CheckboxInput(attrs={"class":"form-chekbox", 'placeholder' : "La réponse est bonne ou pas"}),
         }
+
+class UploadFileForm(forms.Form):
+    title = forms.CharField(max_length=50)
+    file = forms.FileField()
