@@ -1,0 +1,28 @@
+{% extends 'dashboard/base.html' %}
+
+{% block content %}
+
+<h1>Liste des quizz</h1>
+
+<p> Nombre de quizz créé: {{nb_quizz}}</p>
+
+<ul>
+    {% for quizz in quizz_list %}
+
+    <div class="card">
+        <div class="card-header">
+            Quizz: 
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Titre du quizz: </h5>
+            <p class="card-text">
+                <ul>
+                   
+                </ul>
+            </p>
+      </div>
+    
+    {% endfor %}
+</ul>
+
+{% endblock %}

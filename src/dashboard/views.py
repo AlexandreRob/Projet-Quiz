@@ -63,3 +63,6 @@ def upload_quiz(request):
 
 def quizz(request):
     return render(request, "dashboard/quizz.html", {})
+
+def quizz_list(request):
+    return render(request, "dashboard/quizz_list.html", {})
