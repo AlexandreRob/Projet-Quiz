@@ -79,7 +79,7 @@ WSGI_APPLICATION = 'Quiz.wsgi.application'
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "DB_BIMVisio3",
+        "NAME": "DB_BIMVisio4",
         "USER" : "moni",
         "PASSWORD" : "moni",
       
@@ -136,7 +136,6 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
-
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field

@@ -14,39 +14,22 @@ class Service(models.Model):
     def __str__(self):
         return self.codeService
 
-class Employe(models.Model):
-    matriculeEmploye = models.CharField(max_length=5, blank=False, null=False, unique=True)
-    nom = models.CharField(max_length=50, blank=False, null=False)
-    prenom = models.CharField(max_length=50, blank=False, null=False)
-    dateDeNaissance = models.CharField(max_length=50, blank=True, null=True)
-    codePostalDeNaissance = models.CharField(max_length=5, blank=True, null=True)
-    adresse1 = models.CharField(max_length=100, blank=True, null=True)
-    adresse2 = models.CharField(max_length=100, blank=True, null=True)
-    codePostal = models.CharField(max_length=5, blank=True, null=True)
-    ville = models.CharField(max_length=50, blank=True, null=True)
-    idService = models.ForeignKey(Service, models.DO_NOTHING)
-
-    def __str__(self):
-        return self.matriculeEmploye
-
 class Quiz(models.Model):
     intituleQuiz = models.CharField(max_length=5, blank=False, null=False)
     noteMini = models.IntegerField(blank=True, null=True)
     lienXml = models.CharField(max_length=500, blank=True, null=True)
     idService = models.ForeignKey(Service, models.DO_NOTHING)
-    # idSession = models.OneToOneField(Session, models.DO_NOTHING)
 
     def __str__(self):
         return self.intituleQuiz
-    
+
 
 class Session(models.Model):
     intituleSession = models.CharField(max_length=50, blank=False, null=False)
-    datedebutsession = models.DateTimeField(blank=True, null=True)
-    datefinsession = models.DateTimeField(blank=True, null=True) 
+    dateDebutSession = models.DateTimeField(blank=True, null=True)
+    dateFinSession = models.DateTimeField(blank=True, null=True) 
     idService = models.ForeignKey(Service, models.DO_NOTHING)
-    idEmploye = models.ForeignKey(Employe, models.DO_NOTHING)
-    # idQuiz = models.ForeignKey(Quiz, models.DO_NOTHING)
+    idQuiz = models.ForeignKey(Quiz, models.DO_NOTHING)
 
     def __str__(self):
         return self.intituleSession
@@ -58,6 +41,7 @@ class Question(models.Model):
     timer = models.DurationField(blank=True, null=True)
     coefficient = models.IntegerField(blank=False, null=False)
     feedback = models.CharField(max_length=100, blank=True, null=True)
+    idQuiz = models.ForeignKey(Quiz, models.DO_NOTHING)
 
     def __str__(self):
         return self.intitule
@@ -70,14 +54,29 @@ class Reponse(models.Model):
     def __str__(self):
         return self.intituleReponse
 
-class Composer(models.Model):
-    idQuiz = models.ForeignKey(Quiz, models.DO_NOTHING)
-    idQuestion = models.ForeignKey(Question, models.DO_NOTHING)
+class Resultat(models.Model):
+    resultat = models.DecimalField(max_digits=5, decimal_places=2, blank=True, null=True)
+    idSession = models.ForeignKey(Session, models.DO_NOTHING)
 
-class Constituer(models.Model):
-    idReponse = models.ForeignKey(Reponse, models.DO_NOTHING)
-    idQuestion = models.ForeignKey(Question, models.DO_NOTHING)
+    def __str__(self):
+        return self.resultat
 
-# class Posseder(models.Model):
-#     idEmploye = models.OneToOneField(Employe, models.DO_NOTHING)
-#     idService = models.ForeignKey(Service, models.DO_NOTHING)
+class Employe(models.Model):
+    matriculeEmploye = models.CharField(max_length=5, blank=False, null=False, unique=True)
+    nom = models.CharField(max_length=50, blank=False, null=False)
+    prenom = models.CharField(max_length=50, blank=False, null=False)
+    dateDeNaissance = models.CharField(max_length=50, blank=True, null=True)
+    codePostalDeNaissance = models.CharField(max_length=5, blank=True, null=True)
+    adresse1 = models.CharField(max_length=100, blank=True, null=True)
+    adresse2 = models.CharField(max_length=100, blank=True, null=True)
+    codePostal = models.CharField(max_length=5, blank=True, null=True)
+    ville = models.CharField(max_length=50, blank=True, null=True)
+    role = models.CharField(max_length=50, blank=False, null=False)
+    idService = models.ForeignKey(Service, models.DO_NOTHING)
+
+    def __str__(self):
+        return self.matriculeEmploye
+
+class Etre_attribue(models.Model):
+    idEmploye = models.ForeignKey(Employe, models.DO_NOTHING)
+    idSession = models.ForeignKey(Session, models.DO_NOTHING)

@@ -5,21 +5,22 @@ from .models import *
 class SessionForm(ModelForm):
     class Meta:
         model = Session
-        fields = ("id", "intituleSession", "datedebutsession", "datefinsession", "idService", "idEmploye")
+        fields = ("id", "intituleSession", "dateDebutSession", "dateFinSession", "idService", "idQuiz")
     
         labels = {
             "intituleSession" : "",
-            "datedebutsession" : "YYYY-MM-DD HH:MM:SS",
-            "datefinsession" : "",
-            "idService" : "Entrer le service",
-            "idEmploye" : "Entrer l'employée",
+            "dateDebutSession" : "YYYY-MM-DD HH:MM:SS",
+            "dateFinSession" : "",
+            "idService" : "",
+            "idQuiz" : "",
+
         }
         widgets = {
             "intituleSession" : forms.TextInput(attrs={"class":"form-control", 'placeholder' : "Entrer l'intitulé de la session"}),
-            "datedebutsession" : forms.TextInput(attrs={"class":"form-control", 'placeholder' : "Entrer la date de début"}),
-            "datefinsession" : forms.TextInput(attrs={"class":"form-control", 'placeholder' : "Entrer la date de fin"}),
+            "dateDebutSession" : forms.TextInput(attrs={"class":"form-control", 'placeholder' : "Entrer la date de début"}),
+            "dateFinSession" : forms.TextInput(attrs={"class":"form-control", 'placeholder' : "Entrer la date de fin"}),
             "idService" : forms.Select(attrs={"class":"form-select", 'placeholder' : "Entrer le service concerné"}),
-            "idEmploye" : forms.Select(attrs={"class":"form-select", 'placeholder' : "Entrer l'employé concerné"}),
+            "idQuiz" : forms.Select(attrs={"class":"form-select", 'placeholder' : "Entrer le Quiz"}),
         }
 
 class QuestionsForm(ModelForm):
