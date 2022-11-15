@@ -1,4 +1,5 @@
 from django.shortcuts import render, HttpResponseRedirect
+from django.urls import reverse
 from .models import *
 from .forms import QuestionsForm, SessionForm
 
@@ -68,6 +69,8 @@ def quizz(request):
 def page_csv(request):
     return render(request, "dashboard/import_csv.html", {})
 
-# def import_csv(request)
+def import_csv(request) :
+    return HttpResponseRedirect(reverse('import_csv'))
+
 def quizz_list(request):
     return render(request, "dashboard/quizz_list.html", {})
