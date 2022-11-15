@@ -15,7 +15,7 @@ def login_user(request):
             return redirect('home')     
 
         else:
-            messages.success(request, 'Erreur, réessayez encore...')
+            messages.success(request, 'Erreur, veuillez réessayez ...')
             return redirect('login')     
     
     else:
@@ -23,7 +23,7 @@ def login_user(request):
 
 def logout_user(request):
     logout(request)
-    messages.success(request, "Tu t'es déconnecté!!!")
+    messages.success(request, "Vous êtes déconnecté!!!")
     return redirect('home')
 
 def register_user(request):
