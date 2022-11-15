@@ -1,0 +1,23 @@
+{% extends 'dashboard/base.html' %}
+
+{%  block content %}
+
+{% if user.is_authenticated %}
+
+    <h1>Import csv</h1>
+    <br><br>
+    <form action="import_csv/" method="post">
+        {% csrf_token %}
+        <div class="input-group mb-3">
+            <input class="input-group-text" type="submit" value="Upload">
+            <input class="form-control" type="file">
+        </div>
+    </form>
+
+{% else %}
+<h1>Oh non! Vous devez être connecté pour voir cette page</h1>
+<a href="{%  url 'login' %}">Connexion</a>
+
+{% endif %}
+
+{% endblock %}
