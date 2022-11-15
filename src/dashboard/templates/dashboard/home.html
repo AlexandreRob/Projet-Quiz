@@ -13,12 +13,18 @@
     <a class="btn btn-primary" href="{%  url 'add-session' %}">Créer une session</a>
     
     <br><br>
-    <a class="btn btn-warning disabled" role="button" aria-disabled="true">Voir la liste des quizz</a>
+    <a class="btn btn-warning " href="{%  url 'quizz_list' %}" role="button" aria-disabled="true">Voir la liste des quizz</a>
     <a class="btn btn-warning " href="{%  url 'add-quiz' %}">Créer un quizz</a>
     
+    
     <br><br>
-    <a class="btn btn-success disabled" role="button" aria-disabled="true">Voir la liste des questions</a>
+    <a class="btn btn-success "   href="{%  url 'question_list' %}" role="button" aria-disabled="true">Voir la liste des questions</a>
     <a  class="btn btn-success" href="{%  url 'add-question' %}">Créer une question</a>
+    <br><br>
+    <a class="btn btn-dark" href="{%  url 'quizz' %}">tester un quizz</a>
+    
+    <br><br>
+    <a class="btn btn-warning " href="{%  url 'import-csv' %}">Importer un csv</a>
     
     {% endif %}
 

@@ -2,10 +2,11 @@
 
 
 {% block content %}
-
-<div class="quiz-container" id="quiz">
-    
-    <div class="quiz-header">
+{% load static %}
+<link rel="stylesheet" href="{% static 'dashboard/style.css' %}" type="text/css" >
+<div class="quiz-container " id="quiz">
+  
+    <div class="quiz-header ">
       <h2 id="question">Question Text</h2>
       <ul>
         <li>
@@ -31,11 +32,11 @@
       </ul>
     </div>
 
-    <button id="submit">Submit</button>
-    
-  </div>
-  {% load static %}
-    <script src="{% static 'dashboard/script.js' %}"></script>
-    <link rel="stylesheet" href="{% static 'dashboard/style.css' %}" type="text/css" >
+    <button id="submit">Envoyer</button>
   
-{%endblock%}
+</div>
+  
+    <script src="{% static 'dashboard/script.js' %}"></script>
+    
+  
+{% endblock %}

@@ -81,7 +81,8 @@ DATABASES = {
         "ENGINE": "django.db.backends.postgresql",
         "NAME": "DB_BIMVisio4",
         "USER" : "moni",
-        "PASSWORD" : "moni"
+        "PASSWORD" : "moni",
+      
         #  'ENGINE': 'django.db.backends.postgresql_psycopg2',
 
         # 'NAME': 'projet_quizz',

@@ -9,5 +9,8 @@ urlpatterns = [
     path('add_quiz/', views.add_quiz, name="add-quiz"),
     path('upload_quiz/', views.upload_quiz, name="upload-quiz"),
     path('quizz/', views.quizz, name='quizz'),
+    path('quizz_list/', views.quizz_list, name='quizz_list'),
+    path('question_list', views.all_questions, name='question_list'),
+    path('import_csv', views.page_csv, name='import-csv')
     # path('service_sessions/', views.service_sessions, name="service-sessions"),
 ]

@@ -2,6 +2,7 @@ from django.shortcuts import render, HttpResponseRedirect
 from .models import *
 from .forms import QuestionsForm, SessionForm
 
+
 def home(request):
     return render(request, "dashboard/home.html", {})
 
@@ -63,3 +64,10 @@ def upload_quiz(request):
 
 def quizz(request):
     return render(request, "dashboard/quizz.html", {})
+
+def page_csv(request):
+    return render(request, "dashboard/import_csv.html", {})
+
+# def import_csv(request)
+def quizz_list(request):
+    return render(request, "dashboard/quizz_list.html", {})

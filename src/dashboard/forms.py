@@ -13,6 +13,7 @@ class SessionForm(ModelForm):
             "dateFinSession" : "",
             "idService" : "",
             "idQuiz" : "",
+
         }
         widgets = {
             "intituleSession" : forms.TextInput(attrs={"class":"form-control", 'placeholder' : "Entrer l'intitulé de la session"}),

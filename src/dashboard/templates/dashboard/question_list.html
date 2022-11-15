@@ -7,20 +7,21 @@
     <p> Nombre de question créé: {{nb_question}}</p>
 
     <ul>
-        {% for session in session_list %}
+        {% for question in question_list %}
 
         <div class="card">
             <div class="card-header">
                 question: {{question.id}}
             </div>
             <div class="card-body">
-                <h5 class="card-title">Thème: {{ question.Question.titre }}</h5>
+                <h5 class="card-title">Thème: {{ question.titre }}</h5>
                 <p class="card-text">
                     <ul>
                         <strong> Question: </strong> {{ question.intitule }} <br>
-                        <!-- <strong>Date de début: </strong>{{ session.datedebutsession }} <br>
-                        <strong>Date de fin: </strong>{{ session.datefinsession }} <br>
-                        <strong>Participants: </strong>{{ session.Employees.matriculeemployee }} -->
+                        <strong> Bonne réponse: </strong> {{ question.bonneReponse }} <br>
+                        <strong> Coefficient: </strong> {{ question.coefficient }} <br>
+                        <strong> Feedback: </strong> {{ question.feedback }} <br>
+                        
                     </ul>
                 </p>
           </div>
