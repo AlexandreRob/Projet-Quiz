@@ -6,9 +6,12 @@
 #   * Remove `managed = False` lines if you wish to allow Django to create, modify, and delete the table
 # Feel free to rename the models, but don't rename db_table values or field names.
 from django.db import models
+from django.contrib.auth.models import AbstractUser
+from django.db.models import Q
+
 
 class Service(models.Model):
-    codeService = models.CharField(max_length=5, blank=False, null=False, unique=True)
+    codeService = models.CharField(primary_key= True, max_length=5, blank=False, null=False, unique=True, default="MKT")
     intitule = models.CharField(max_length=50, blank=False, null=False)
 
     def __str__(self):
@@ -61,8 +64,12 @@ class Resultat(models.Model):
     def __str__(self):
         return self.resultat
 
-class Employe(models.Model):
-    matriculeEmploye = models.CharField(max_length=5, blank=False, null=False, unique=True)
+class Role(models.Model):
+    codeRole = models.CharField(primary_key=True, max_length=50)
+    nomRole = models.CharField(max_length=50, blank=True, null=True)
+
+class Employe(AbstractUser):
+    matriculeEmploye = models.CharField(max_length=5, blank=False, null=False, unique=True, default="AAAA")
     nom = models.CharField(max_length=50, blank=False, null=False)
     prenom = models.CharField(max_length=50, blank=False, null=False)
     dateDeNaissance = models.CharField(max_length=50, blank=True, null=True)
@@ -72,10 +79,14 @@ class Employe(models.Model):
     codePostal = models.CharField(max_length=5, blank=True, null=True)
     ville = models.CharField(max_length=50, blank=True, null=True)
     role = models.CharField(max_length=50, blank=False, null=False)
-    idService = models.ForeignKey(Service, models.DO_NOTHING)
+    codeService = models.ForeignKey(Service, models.DO_NOTHING, null=True)
+    codeRole = models.ForeignKey(Role, models.DO_NOTHING, db_column='codeRole', null=False, default="admin")
 
-    def __str__(self):
-        return self.matriculeEmploye
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(fields=["matriculeEmploye"], name="unique matricule"),
+            models.UniqueConstraint(fields=["codeRole", "codeService"], condition=Q(codeRole="chef"), name="unique chef de secteur")
+        ]
 
 class Etre_attribue(models.Model):
     idEmploye = models.ForeignKey(Employe, models.DO_NOTHING)
