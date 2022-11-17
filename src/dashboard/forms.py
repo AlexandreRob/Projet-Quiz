@@ -14,6 +14,7 @@ class SessionForm(ModelForm):
             "codeService" : "",
             "idQuiz" : "",
 
+
         }
         widgets = {
             "intituleSession" : forms.TextInput(attrs={"class":"form-control", 'placeholder' : "Entrer l'intitulé de la session"}),
