@@ -21,7 +21,7 @@ class Quiz(models.Model):
     intituleQuiz = models.CharField(max_length=5, blank=False, null=False)
     noteMini = models.IntegerField(blank=True, null=True)
     lienXml = models.CharField(max_length=500, blank=True, null=True)
-    idService = models.ForeignKey(Service, models.DO_NOTHING)
+    codeService = models.ForeignKey(Service, models.DO_NOTHING)
 
     def __str__(self):
         return self.intituleQuiz
@@ -31,7 +31,7 @@ class Session(models.Model):
     intituleSession = models.CharField(max_length=50, blank=False, null=False)
     dateDebutSession = models.DateTimeField(blank=True, null=True)
     dateFinSession = models.DateTimeField(blank=True, null=True) 
-    idService = models.ForeignKey(Service, models.DO_NOTHING)
+    codeService = models.ForeignKey(Service, models.DO_NOTHING)
     idQuiz = models.ForeignKey(Quiz, models.DO_NOTHING)
 
     def __str__(self):

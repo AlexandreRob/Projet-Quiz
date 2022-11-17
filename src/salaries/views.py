@@ -60,7 +60,7 @@ def index(request):
     # cm = Metier.objects.get(pk="dev_web")
     # cr = Role.objects.get(pk="chef")
     # Utilisateur.objects.create(username="paul", password=mot_de_passe, email="paul@example.com", matricule="AAAE", codeSecteur=cs, codeMetier=cm, codeRole=cr)
-    return render(request, "login.html", {})
+    return render(request, "authenticate/login.html", {})
 
 
 
