@@ -12,6 +12,5 @@ urlpatterns = [
     path('quizz_list/', views.quizz_list, name='quizz_list'),
     path('question_list', views.all_questions, name='question_list'),
     path('page_csv/', views.page_csv, name='page-csv'),
-    path('page_csv/import_csv', views.import_csv, name='import-csv'),
     # path('service_sessions/', views.service_sessions, name="service-sessions"),
 ]

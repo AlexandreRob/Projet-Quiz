@@ -6,11 +6,11 @@
 
     <h1>Import csv</h1>
     <br><br>
-    <form action="import_csv" method="post">
+    <form action="" method="POST">
         {% csrf_token %}
         <div class="input-group mb-3">
-            <input class="input-group-text" type="submit" value="Upload">
-            <input class="form-control" type="file">
+            <button id="btn-import-csv" type="submit" class="btn btn-primary">Importer</button>
+            <input class="form-control" type="file" name="csv">
         </div>
     </form>
 

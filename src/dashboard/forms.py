@@ -11,8 +11,8 @@ class SessionForm(ModelForm):
             "intituleSession" : "",
             "dateDebutSession" : "YYYY-MM-DD HH:MM:SS",
             "dateFinSession" : "",
-            "idService" : "",
-            "idQuiz" : "",
+            "idService" : "Entrer le service concerné",
+            "idQuiz" : "Entrer le Quiz",
 
         }
         widgets = {
