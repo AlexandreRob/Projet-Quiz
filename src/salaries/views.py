@@ -52,9 +52,6 @@ def index(request):
     return redirect('login')
 
 
-
-
-
 def login_user(request):
     if request.method == "POST":
         username = request.POST['username']

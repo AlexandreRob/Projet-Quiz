@@ -12,7 +12,7 @@ class SessionForm(ModelForm):
             "dateDebutSession" : "YYYY-MM-DD HH:MM:SS",
             "dateFinSession" : "",
             "codeService" : "",
-            "idQuiz" : "",
+            "idQuiz" : "Rentrer ",
 
 
         }
