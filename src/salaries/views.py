@@ -48,22 +48,8 @@ def index(request):
     create_chef_secteur("RD")
     # --------------------------- Création collaborateurs RD ---------
     create_collaborateurs("RD")
-    # ------------------- test contrainte d'unicité matricule -------
-    # mot_de_passe = make_password("azerty")
-    # cs = Secteur.objects.get(pk="RD")
-    # cm = Metier.objects.get(pk="dev_web")
-    # cr = Role.objects.get(pk="collab")
-    # Utilisateur.objects.create(username="laurent", password=mot_de_passe, email="laurent@example.com", matricule="AAAC", codeSecteur=cs, codeMetier=cm, codeRole=cr)
-    # ------------------- test contrainte d'unicité role(chef)/secteur -------
-    # mot_de_passe = make_password("azerty")
-    # cs = Secteur.objects.get(pk="RD")
-    # cm = Metier.objects.get(pk="dev_web")
-    # cr = Role.objects.get(pk="chef")
-    # Utilisateur.objects.create(username="paul", password=mot_de_passe, email="paul@example.com", matricule="AAAE", codeSecteur=cs, codeMetier=cm, codeRole=cr)
-    return render(request, "authenticate/login.html", {})
 
-
-
+    return redirect('login')
 
 
 def login_user(request):

@@ -11,16 +11,16 @@
 
         <div class="card">
             <div class="card-header">
-                Session: {{session.codesession}}
+                Session: {{session.intituleSession}}
             </div>
             <div class="card-body">
-                <h5 class="card-title">Thème: {{ session.Quizzes.namequizz }}</h5>
+                <h5 class="card-title">Thème: {{ session.idQuiz.intituleQuiz }}</h5>
                 <p class="card-text">
                     <ul>
-                        <strong> Service: </strong> {{ session.codeservice }} <br>
-                        <strong>Date de début: </strong>{{ session.datedebutsession }} <br>
-                        <strong>Date de fin: </strong>{{ session.datefinsession }} <br>
-                        <strong>Participants: </strong>{{ session.idEmploye.prenom }}
+                        <strong>Service: </strong> {{ session.idQuiz.codeService }} <br>
+                        <strong>Date de début: </strong>{{ session.dateDebutSession }} <br>
+                        <strong>Date de fin: </strong>{{ session.dateFinSession }} <br>
+                        <strong>Participants: </strong>{{ session.idSession.codeService.nom }}
                     </ul>
                 </p>
           </div>
