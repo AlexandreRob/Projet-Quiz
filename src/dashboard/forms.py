@@ -5,13 +5,13 @@ from .models import *
 class SessionForm(ModelForm):
     class Meta:
         model = Session
-        fields = ("id", "intituleSession", "dateDebutSession", "dateFinSession", "idService", "idQuiz")
+        fields = ("id", "intituleSession", "dateDebutSession", "dateFinSession", "codeService", "idQuiz")
     
         labels = {
             "intituleSession" : "",
             "dateDebutSession" : "YYYY-MM-DD HH:MM:SS",
             "dateFinSession" : "",
-            "idService" : "",
+            "codeService" : "",
             "idQuiz" : "",
 
         }
@@ -19,7 +19,7 @@ class SessionForm(ModelForm):
             "intituleSession" : forms.TextInput(attrs={"class":"form-control", 'placeholder' : "Entrer l'intitulé de la session"}),
             "dateDebutSession" : forms.TextInput(attrs={"class":"form-control", 'placeholder' : "Entrer la date de début"}),
             "dateFinSession" : forms.TextInput(attrs={"class":"form-control", 'placeholder' : "Entrer la date de fin"}),
-            "idService" : forms.Select(attrs={"class":"form-select", 'placeholder' : "Entrer le service concerné"}),
+            "codeService" : forms.Select(attrs={"class":"form-select", 'placeholder' : "Entrer le service concerné"}),
             "idQuiz" : forms.Select(attrs={"class":"form-select", 'placeholder' : "Entrer le Quiz"}),
         }
 
