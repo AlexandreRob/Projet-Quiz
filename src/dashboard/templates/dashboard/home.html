@@ -2,8 +2,14 @@
 
 {%  block content %}
 
-    <h1>Bonjour {{ user }},<br>
+    {% if user.is_authenticated %}
+    <h1>Bonjour {{ user.first_name }} {{ user.last_name }},<br>
         bienvenue sur l'intranet de BIMVisio</h1>
+    {% else %}
+        <h1>Bonjour et<br>
+        bienvenue sur l'intranet de BIMVisio</h1>
+    
+    {% endif %}
 
     {% if user.is_superuser %}
     
@@ -26,8 +32,9 @@
     <br><br>
     <a class="btn btn-warning " href="{%  url 'page-csv' %}">Importer un csv</a>
     
+    
+
+    
     {% endif %}
-
-
 {% endblock %}
 
